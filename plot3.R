@@ -4,8 +4,8 @@ library(plyr)
 plot3 <- function() {
         URL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
         zipfile <- "household_power_consumption.zip"
-        #download.file(URL, zipfile,  method="curl")
-        #unzip(zipfile)
+        download.file(URL, zipfile,  method="curl")
+        unzip(zipfile)
         filename <- "household_power_consumption.txt"
         allpower <- read.table(filename, header=TRUE, sep=";", as.is=TRUE)
         p3 <- data.table(allpower[allpower$Date == "1/2/2007" | allpower$Date =="2/2/2007",])

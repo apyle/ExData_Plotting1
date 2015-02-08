@@ -4,8 +4,8 @@ library(plyr)
 plot2 <- function() {
         URL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
         zipfile <- "household_power_consumption.zip"
-        #download.file(URL, zipfile,  method="curl")
-        #unzip(zipfile)
+        download.file(URL, zipfile,  method="curl")
+        unzip(zipfile)
         filename <- "household_power_consumption.txt"
         allpower <- read.table(filename, header=TRUE, sep=";", as.is=TRUE)
         mypower <- allpower[allpower$Date == "1/2/2007" | allpower$Date =="2/2/2007",]
@@ -17,7 +17,6 @@ plot2 <- function() {
         dev.set(2)
         png(file = "plot2.png", bg="white")
         plot(p2$date_time, p2$active_power, xlab="", ylab="Global Active Power (kilowatts)", type="l")
-        #hist(pdt$active_power, xlab="Global Active Power (kilowatts)", main="Global Active Power", col="red")
         dev.off()
         
         
